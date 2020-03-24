@@ -28,4 +28,64 @@ int main()
 	Result.Input();
 	cout << endl;
 	cout << endl;
+	
+	//матрицы
+	long int row, col;
+	int C;
+	Matrix M(3,3);
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+			M.Element(i, j) = i + j;
+	}
+	cout << "Matrix: " << endl << M << endl;//вывод с помощью оператора <<
+	
+	Matrix M1(2,2);
+	for (int i = 0; i < 2; i++)
+	{
+		for (int j = 0; j < 2; j++)
+			M1.Element(i, j) = i + j;
+	}
+	cout << "Matrix M1: " << endl;
+	M1.Show();//вызов вывода с помощью функции
+	cout << endl;
+	
+	Matrix M2(2,2);
+	for (int i = 0; i < 2; i++)
+	{
+		for (int j = 0; j < 2; j++)
+			M2.Element(i, j) = i + 3*j;
+	}
+	cout << "Matrix M2: " << endl;
+	M2.Show();
+	cout << endl;
+
+	cout << "Substraction is:" << endl;
+	(M1 - M2).Show();
+
+	cout << "Sum is:" << endl;
+	(M1+M2).Show();
+	
+	cout << "Multiply is:" << endl;
+	(M1 * M2).Show();
+
+	//умножение на число
+	cout << "Input count of rows: " << endl;
+	cin >> row;
+	cout << "Input count of columns: " << endl;
+	cin >> col;
+	for (int i = 0; i < row; i++)
+	{
+		for (int j = 0; j < col; j++)
+			M.Element(i, j) = i + j;
+	}
+	M.Show();
+	cout << endl << "Input number for multiply: ";
+	cin >> C;
+	cout << "Result of multiplication: " << endl;
+	M.Multiply(C);
+	M.Show();
+
+	getchar();
+	return 0;
 }
