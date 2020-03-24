@@ -16,7 +16,7 @@ public:
 	{
 		for (int i = 0; i < n; ++i)
 			for (int j = 0; j < m; ++j)
-				Matr[i][j] = 0.01 * (rand() % 10);
+				Matr[i][j] = rand() % 10;
 		return Matr[i][j];
 	}
 
