@@ -88,3 +88,24 @@ Matrix Matrix::operator - (Matrix& tmp)
 		return temp;
 	}
 }
+
+//произведение матрицы на матрицу
+Matrix Matrix::operator * (Matrix& tmp)
+{
+	Matrix temp;
+	temp.n = this->n;
+	temp.m = this->m;
+	int i, j, k;
+	temp.Matr = new long* [temp.n];
+	for (i = 0; i < temp.n; ++i)
+		temp.Matr[i] = new long[temp.m];
+
+	for (i = 0; i < temp.n; ++i)
+		for (j = 0; j < temp.m; ++j)
+		{
+			temp.Matr[i][j] = 0;
+			for (k = 0; k < temp.m; ++k)
+				temp.Matr[i][j] = temp.Matr[i][j] + (this->Matr[i][k] * tmp.Matr[k][j]);
+		}
+	return temp;
+}
