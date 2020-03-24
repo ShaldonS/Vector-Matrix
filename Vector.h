@@ -13,3 +13,24 @@ private:
 	int* vect;
 	int a, b, c;
 };
+
+//умножение вектора на вектор
+Vector Vector::operator*(const Vector& tmp)
+{
+	Vector Multiply;
+	Multiply.a = tmp.a * a;
+	Multiply.b = tmp.b * b;
+	Multiply.c = tmp.c * c;
+	//Multiply = Multiply.a + Multiply.b + Multiply.c;
+	return Multiply;
+}
+
+//умножение вектора на число
+Vector Vector::operator*(const int& tmp)
+{
+	Vector MultiplyN;
+	MultiplyN.a = a * tmp;
+	MultiplyN.b = b * tmp;
+	MultiplyN.c = c * tmp;
+	return MultiplyN;
+}
