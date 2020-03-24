@@ -65,3 +65,26 @@ private:
 		}
 	}
 };
+
+//сумма матриц
+Matrix Matrix :: operator + (Matrix& tmp)
+{
+	int i, j;
+	for (i = 0; i < this->n; ++i)
+		for (j = 0; j < this->m; ++j)
+			this->Matr[i][j] = tmp.Matr[i][j] + this->Matr[i][j];
+	return *this;
+}
+
+//разность матриц
+Matrix Matrix::operator - (Matrix& tmp)
+{
+	if (tmp.n == n && tmp.m == m)
+	{
+		Matrix temp(m, n);
+		for (int i = 0; i < m; i++)
+			for (int j = 0; j < n; j++)
+				temp.Matr[i][j] = -(Matr[i][j] - tmp.Matr[i][j]);
+		return temp;
+	}
+}
