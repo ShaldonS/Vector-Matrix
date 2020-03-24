@@ -10,6 +10,15 @@ public:
 	Vector operator<<(const Vector&tmp);
 	friend ostream& operator<<(ostream& out, const Vector& tmp);
 	void Input();
+	
+		//оператор присваивания
+	bool operator ==(const Vector& tmp)
+	{
+		if (this->x == tmp.x && this->y == tmp.y && this->z == tmp.z)
+			return true;
+		else return false;
+	}
+	
 private:
 	int* vect;
 	int a, b, c;
@@ -60,4 +69,12 @@ Vector Vector::operator-(const Vector& tmp)
 void Vector::Input()
 {
 	cout << a << " " << b << " " << c;
+}
+
+//оператор << для вывода с помощью cout
+ostream& operator<<(ostream& out, const Vector& tmp)
+{
+	Vector NewVector;
+	out << tmp.a << " " << tmp.b << " " << tmp.c;
+	return out;
 }
