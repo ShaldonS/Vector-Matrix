@@ -34,3 +34,29 @@ Vector Vector::operator*(const int& tmp)
 	MultiplyN.c = c * tmp;
 	return MultiplyN;
 }
+
+//сложение
+Vector Vector::operator+(const Vector& tmp)
+{
+	Vector NewVector;
+	NewVector.a = tmp.a + a;
+	NewVector.b = tmp.b + b;
+	NewVector.c = tmp.c + c;
+	return NewVector;
+}
+
+//вычитание
+Vector Vector::operator-(const Vector& tmp)
+{
+	Vector NewVector;
+	NewVector.a = tmp.a - a;
+	NewVector.b = tmp.b - b;
+	NewVector.c = tmp.c - c;
+	return NewVector;
+}
+
+//вывод на экран
+void Vector::Input()
+{
+	cout << a << " " << b << " " << c;
+}
