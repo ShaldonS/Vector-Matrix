@@ -72,6 +72,7 @@ int main()
 	//умножение на число
 	cout << "Input count of rows: " << endl;
 	cin >> row;
+	cout << "Notice: The number of rows must be greater than or equal to the number of columns" << endl;
 	cout << "Input count of columns: " << endl;
 	cin >> col;
 	for (int i = 0; i < row; i++)
