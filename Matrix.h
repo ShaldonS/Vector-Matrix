@@ -8,7 +8,7 @@ public:
 	Matrix operator+(Matrix&tmp);
 	Matrix operator-(Matrix&tmp);
 	Matrix operator*(Matrix&tmp);
-	Matrix operator=(Matrix&tmp);
+	Matrix operator==(Matrix&tmp);
 	Matrix operator<<(Matrix&tmp);
 	friend ostream& operator<<(ostream& out, Matrix tmp);
 
@@ -110,26 +110,8 @@ Matrix Matrix::operator * (Matrix& tmp)
 	return temp;
 }
 
-//оператор << для вывода с помощью cout
-ostream& operator << (ostream& out, Matrix tmp)
-{
-	if (tmp.Matr != NULL)
-	{
-		out << "Output: " << endl;
-		for (int i = 0; i < tmp.m; i++)
-		{
-			for (int j = 0; j < tmp.n; j++)
-				out << tmp.Matr[i][j];
-			out << endl;
-		}
-	}
-	else
-		out << "Empty" << endl;
-	return out;
-}
-
 // оператор присваивания
-Matrix Matrix::operator=(Matrix& tmp)
+Matrix Matrix::operator==(Matrix& tmp)
 {
 	if (n != tmp.n || m != tmp.m)
 	{
@@ -146,4 +128,25 @@ Matrix Matrix::operator=(Matrix& tmp)
 		for (int j = 0; j < n; j++)
 			Matr[i][j] = tmp.Matr[i][j];
 	return *this;
+}
+
+//оператор << для вывода с помощью cout
+ostream& operator << (ostream& out, Matrix tmp)
+{
+	if (tmp.Matr != NULL)
+	{
+		out << "Output: " << endl;
+		for (int i = 0; i < tmp.m; i++)
+		{
+			for (int j = 0; j < tmp.n; j++)
+			{
+				cout.width(5);
+				out << tmp.Matr[i][j];
+			}
+			out << endl;
+		}
+	}
+	else
+		out << "Empty" << endl;
+	return out;
 }
