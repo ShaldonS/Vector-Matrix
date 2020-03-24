@@ -109,3 +109,21 @@ Matrix Matrix::operator * (Matrix& tmp)
 		}
 	return temp;
 }
+
+//оператор << для вывода с помощью cout
+ostream& operator << (ostream& out, Matrix tmp)
+{
+	if (tmp.Matr != NULL)
+	{
+		out << "Output: " << endl;
+		for (int i = 0; i < tmp.m; i++)
+		{
+			for (int j = 0; j < tmp.n; j++)
+				out << tmp.Matr[i][j];
+			out << endl;
+		}
+	}
+	else
+		out << "Empty" << endl;
+	return out;
+}
