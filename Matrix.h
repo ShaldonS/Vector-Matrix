@@ -8,7 +8,7 @@ public:
 	Matrix operator+(Matrix&tmp);
 	Matrix operator-(Matrix&tmp);
 	Matrix operator*(Matrix&tmp);
-	//Matrix operator=(Matrix&tmp);
+	Matrix operator=(Matrix&tmp);
 	Matrix operator<<(Matrix&tmp);
 	friend ostream& operator<<(ostream& out, Matrix tmp);
 
@@ -126,4 +126,24 @@ ostream& operator << (ostream& out, Matrix tmp)
 	else
 		out << "Empty" << endl;
 	return out;
+}
+
+// оператор присваивания
+Matrix Matrix::operator=(Matrix& tmp)
+{
+	if (n != tmp.n || m != tmp.m)
+	{
+		for (int i = 0; i < m; i++)
+			delete[] Matr[i];
+		delete[] Matr;
+		n = tmp.n;
+		m = tmp.m;
+		Matr = new long int*[m];
+		for (int i = 0; i < m; i++)
+			Matr[i] = new long int[n];
+	}
+	for (int i = 0; i < m; i++)
+		for (int j = 0; j < n; j++)
+			Matr[i][j] = tmp.Matr[i][j];
+	return *this;
 }
