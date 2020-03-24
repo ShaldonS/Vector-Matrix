@@ -86,7 +86,6 @@ int main()
 	cout << "Result of multiplication: " << endl;
 	M.Multiply(C);
 	M.Show();
-
-	getchar();
+	system("PAUSE");
 	return 0;
 }
