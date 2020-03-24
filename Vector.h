@@ -1,3 +1,4 @@
+using namespace std;
 class Vector {
 public:
 	Vector(int x = 0, int y = 0, int z = 0) : a(x), b(y), c(z) {};
