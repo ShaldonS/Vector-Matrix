@@ -1,34 +1,37 @@
 using namespace std;
 
+template <class T>
 class Vector {
 public:
 	Vector(int x = 0, int y = 0, int z = 0) : a(x), b(y), c(z) {};
-	Vector operator*(const Vector&);//умножение на вектор
+	Vector operator*(const Vector<T>&);//умножение на вектор
 	Vector operator*(const int&);//умножение на число
-	Vector operator+(const Vector&tmp);
-	Vector operator-(const Vector&tmp);
-	Vector operator<<(const Vector&tmp);
-	friend ostream& operator<<(ostream& out, const Vector& tmp);
+	Vector operator+(const Vector<T>&tmp);
+	Vector operator-(const Vector<T>&tmp);
+	//Vector operator<<(const Vector<T>& tmp);
+	bool operator==(const Vector<T>&);
+	//friend ostream& operator<<(ostream& out, const Vector<T>& tmp);
 	void Input();
 
-	//оператор присваивания
+	/*//оператор присваивания
 	bool operator ==(const Vector& tmp)
 	{
 		if (this->x == tmp.x && this->y == tmp.y && this->z == tmp.z)
 			return true;
 		else return false;
-	}
+	}*/
+
+	T* data;
 
 private:
 	int x, y, z;
 	int* vect;
 	int a, b, c;
-
-
 };
 
 //умножение вектора на вектор
-Vector Vector::operator*(const Vector& tmp)
+template <class T>
+Vector<T> Vector<T>::operator*(const Vector<T>& tmp)
 {
 	Vector Multiply;
 	Multiply.a = tmp.a * a;
@@ -39,7 +42,8 @@ Vector Vector::operator*(const Vector& tmp)
 }
 
 //умножение вектора на число
-Vector Vector::operator*(const int& tmp)
+template <class T>
+Vector<T> Vector<T>::operator*(const int& tmp)
 {
 	Vector MultiplyN;
 	MultiplyN.a = a * tmp;
@@ -49,7 +53,8 @@ Vector Vector::operator*(const int& tmp)
 }
 
 //сложение
-Vector Vector::operator+(const Vector& tmp)
+template <class T>
+Vector<T> Vector<T>::operator+(const Vector<T>& tmp)
 {
 	Vector NewVector;
 	NewVector.a = tmp.a + a;
@@ -59,7 +64,8 @@ Vector Vector::operator+(const Vector& tmp)
 }
 
 //вычитание
-Vector Vector::operator-(const Vector& tmp)
+template <class T>
+Vector<T> Vector<T>::operator-(const Vector<T>& tmp)
 {
 	Vector NewVector;
 	NewVector.a = tmp.a - a;
@@ -69,15 +75,35 @@ Vector Vector::operator-(const Vector& tmp)
 }
 
 //вывод на экран
-void Vector::Input()
+template <class T>
+void Vector<T>::Input()
 {
 	cout << a << " " << b << " " << c;
 }
 
 //оператор << для вывода с помощью cout
-ostream& operator<<(ostream& out, const Vector& tmp)
+/*template <class T>
+ostream& operator<<(ostream& out, const Vector<T>& tmp)
 {
 	Vector NewVector;
 	out << tmp.a << " " << tmp.b << " " << tmp.c;
 	return out;
+}*/
+
+
+template <class T>
+bool Vector<T>::operator==(const Vector<T> & tmp)
+{
+	if (this->size == tmp.size)
+	{
+		for (int i = 0; i < this->size; i++)
+		{
+			if (this->data[i] != tmp.data[i])
+				return false;
+		}
+		return true;
+	}
+	else {
+		return  false;
+	}
 }
