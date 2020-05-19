@@ -11,7 +11,7 @@ int main(int argv, char* argc[])
 	Vector<int> vec1(2, 1, 5), vec2(3, 2, 1), Result(0,0,0);
 	cout << "Vectors: " << endl;
 	cout << "First vector: ";
-	vec1.Input();
+	cout << vec1;
 	cout << endl;
 	cout << "Second vector: ";
 	vec2.Input();
@@ -30,9 +30,10 @@ int main(int argv, char* argc[])
 	cout << endl;
 
 	//матрицы
+	cout << "Matrix: " << endl;
 	matrix<int> a(2, 2);
 	cout << "Matrix A:" << endl;
-	a.Show();
+	cout << a;
 	matrix<int> b(2, 2);
 	cout << "Matrix B:" << endl;
 	b.Show();

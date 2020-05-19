@@ -12,12 +12,13 @@ public:
 	int matrix_get_n() { return n; }
 	int matrix_get_m() { return m; }
 	T** get() { return Matr; }
-	void set(T** Matr1) { Matr = Matr1; }
+	//void set(T** Matr1) { Matr = Matr1; }
 	matrix(int n1, int m1);
 	void Show();
 	matrix(const matrix<T>& a);
 	~matrix();
 	matrix<T> operator==(matrix<T>& tmp);
+	template <class T>
 	matrix<T> operator<<(matrix<T>& tmp);
 	friend ostream& operator<<(ostream& out, matrix<T> tmp);
 	matrix<T> operator +(matrix<T>& b);
@@ -46,7 +47,7 @@ matrix<T>::matrix(int n1, int m1)
 	{
 		for (int i = 0; i < m; i++) 
 		{
-			Matr[k][i] = rand()%5 - 5;
+			Matr[k][i] = rand()%5 + 5;
 		}
 	}
 }
@@ -157,8 +158,8 @@ matrix<T> matrix<T>::operator==(matrix<T>& tmp)
 	return *this;
 }
 
-template<class T>
-ostream& operator << (ostream& out, matrix<T> tmp)
+
+ostream& operator << (ostream& out, matrix<int> tmp)
 {
 	if (tmp.Matr != NULL)
 	{

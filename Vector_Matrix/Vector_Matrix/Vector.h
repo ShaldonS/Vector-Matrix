@@ -8,9 +8,10 @@ public:
 	Vector operator*(const int&);//умножение на число
 	Vector operator+(const Vector<T>&tmp);
 	Vector operator-(const Vector<T>&tmp);
-	//Vector operator<<(const Vector<T>& tmp);
 	bool operator==(const Vector<T>&);
-	//friend ostream& operator<<(ostream& out, const Vector<T>& tmp);
+	template <class T>
+	Vector operator<<(const Vector<T>& tmp);
+	friend ostream& operator<<(ostream& out, const Vector<T>& tmp);
 	void Input();
 
 	/*//оператор присваивания
@@ -82,13 +83,13 @@ void Vector<T>::Input()
 }
 
 //оператор << для вывода с помощью cout
-/*template <class T>
-ostream& operator<<(ostream& out, const Vector<T>& tmp)
+
+ostream& operator<<(ostream& out, const Vector<int>& tmp)
 {
-	Vector NewVector;
+	Vector<int> NewVector;
 	out << tmp.a << " " << tmp.b << " " << tmp.c;
 	return out;
-}*/
+}
 
 
 template <class T>
